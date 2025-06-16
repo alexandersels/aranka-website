@@ -1,3 +1,4 @@
+
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -33,11 +34,7 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: 'index.html',
-    }),
-
+    // Remove HtmlWebpackPlugin from here since it's handled in each config
     new CopyWebpackPlugin({
       patterns: [
         { from: 'img', to: 'img', noErrorOnMissing: true },
