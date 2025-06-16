@@ -1,8 +1,8 @@
+
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -12,7 +12,7 @@ module.exports = merge(common, {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader', // Same as dev - CSS injected via JavaScript
           'css-loader',
           'sass-loader'
         ]
@@ -21,13 +21,9 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'css/[name].[contenthash].css',
-    }),
     new HtmlWebpackPlugin({
       template: './index.html',
       filename: 'index.html',
-      inject: 'head', // This ensures CSS links are injected in the head
     }),
     new CopyPlugin({
       patterns: [
