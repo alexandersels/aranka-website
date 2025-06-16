@@ -676,269 +676,123 @@ img {
   }
 }
 
-// Pricing Components
-.pricing-info {
+// Pricing Options
+.pricing-options {
   display: grid;
   grid-template-columns: 1fr;
   gap: map.get($spacers, 4);
-  margin-bottom: map.get($spacers, 5);
+  margin-bottom: map.get($spacers, 6);
 
   @include media-breakpoint-up(md) {
     grid-template-columns: 1fr 1fr;
   }
-}
-
-.pricing-item {
-  @include card-style;
-  text-align: center;
-  border: 2px solid transparent;
-
-  &--highlight {
-    border-color: $primary-color;
-    transform: scale(1.02);
-  }
-
-  &:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-
-  &__header {
-    margin-bottom: map.get($spacers, 4);
-
-    h4 {
-      color: $secondary-color;
-      margin-bottom: map.get($spacers, 1);
-      font-size: $font-size-h4;
-    }
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__price {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: $primary-color;
-    line-height: 1;
-    margin-bottom: map.get($spacers, 1);
-  }
-
-  &__duration {
-    color: $text-light;
-    font-size: $font-size-small;
-    margin-bottom: map.get($spacers, 2);
-  }
-
-  &__note {
-    font-size: $font-size-small;
-    color: $text-muted;
-    margin-top: map.get($spacers, 3);
-    margin-bottom: 0;
-    font-style: italic;
-  }
-}
-
-.pricing-options {
-  display: flex;
-  flex-direction: column;
-  gap: map.get($spacers, 3);
-  margin-bottom: map.get($spacers, 2);
 }
 
 .pricing-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: map.get($spacers, 2);
-  background-color: rgba($primary-color, 0.05);
-  border-radius: 8px;
-
-  &__price {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: $primary-color;
-    line-height: 1;
-  }
-
-  &__detail {
-    font-size: $font-size-small;
-    color: $text-light;
-    margin-top: map.get($spacers, 1);
-  }
-}
-
-// Convention Info
-.convention-info {
   @include card-style;
-  margin-bottom: map.get($spacers, 6);
+  text-align: center;
+  border: 2px solid transparent;
+  @include transition();
+
+  &--highlight {
+    border-color: rgba($primary-color, 0.3);
+    background-color: rgba($primary-color, 0.02);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
 
   h4 {
     color: $primary-color;
-    text-align: center;
-    margin-bottom: map.get($spacers, 4);
-    font-size: $font-size-h4;
-  }
-
-  h5 {
-    color: $secondary-color;
-    margin-bottom: map.get($spacers, 2);
-    font-size: 1.1rem;
-  }
-
-  p {
-    color: $text-light;
     margin-bottom: map.get($spacers, 3);
-    line-height: 1.6;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    font-size: $font-size-h5;
   }
 }
 
-.convention-details {
+.pricing-details {
+  display: flex;
+  flex-direction: column;
+  gap: map.get($spacers, 2);
+  margin-bottom: map.get($spacers, 3);
+}
+
+.pricing-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: map.get($spacers, 1);
+}
+
+.pricing-amount {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: $secondary-color;
+  line-height: 1;
+}
+
+.pricing-description {
+  font-size: $font-size-small;
+  color: $text-light;
+}
+
+.pricing-note {
+  font-size: $font-size-small;
+  color: $text-light;
+  margin-bottom: map.get($spacers, 2);
+  font-weight: 600;
+}
+
+.pricing-eligibility {
+  font-size: $font-size-small;
+  color: $text-muted;
+  font-style: italic;
+  margin: 0;
+}
+
+// Practical Information
+.practical-info {
   display: grid;
   grid-template-columns: 1fr;
   gap: map.get($spacers, 4);
   margin-bottom: map.get($spacers, 5);
+  padding: map.get($spacers, 4);
+  background-color: rgba($accent-color, 0.05);
+  border-radius: 10px;
 
   @include media-breakpoint-up(md) {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-.convention-point {
-  padding: map.get($spacers, 3);
-  background-color: rgba($primary-color, 0.02);
-  border-radius: 8px;
-  border-left: 3px solid $primary-color;
-}
-
-// Cancellation Policy
-.cancellation-policy {
-  @include card-style;
-  margin-bottom: map.get($spacers, 5);
-  border: 2px solid $border-color;
-
-  &__header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: map.get($spacers, 2);
-    margin-bottom: map.get($spacers, 4);
-
-    h4 {
-      color: $secondary-color;
-      margin: 0;
-      font-size: $font-size-h4;
-    }
-  }
-
-  &__icon {
-    width: 24px;
-    height: 24px;
+.practical-item {
+  h5 {
     color: $secondary-color;
+    margin-bottom: map.get($spacers, 2);
+    font-size: 1rem;
   }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: map.get($spacers, 4);
-  }
-}
-
-.cancellation-rule {
-  &__main {
-    margin-bottom: map.get($spacers, 3);
-
-    h5 {
-      color: $secondary-color;
-      margin-bottom: map.get($spacers, 2);
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: map.get($spacers, 2);
-    }
-
-    p {
-      color: $text-light;
-      margin: 0;
-      line-height: 1.6;
-    }
-  }
-
-  &__details {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: map.get($spacers, 2);
-    background-color: $light-gray;
-    padding: map.get($spacers, 3);
-    border-radius: 8px;
-
-    @include media-breakpoint-up(md) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-}
-
-.cancellation-detail {
-  display: flex;
-  flex-direction: column;
-  gap: map.get($spacers, 1);
-
-  @include media-breakpoint-up(md) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  &__label {
-    font-weight: 600;
-    color: $text-color;
-    font-size: $font-size-small;
-  }
-
-  &__value {
-    color: $secondary-color;
-    font-weight: 700;
-    font-size: $font-size-small;
-  }
-}
-
-.cancellation-note {
-  background-color: rgba($secondary-color, 0.05);
-  padding: map.get($spacers, 3);
-  border-radius: 8px;
-  border-left: 4px solid $secondary-color;
 
   p {
-    margin: 0;
     color: $text-light;
     font-size: $font-size-small;
-    line-height: 1.6;
-
-    strong {
-      color: $secondary-color;
-    }
+    margin: 0;
+    line-height: 1.5;
   }
 }
 
-// Shared disclaimer styles
-.pricing-disclaimer {
+// Info Footer
+.info-footer {
   text-align: center;
-  padding: map.get($spacers, 4);
+  padding: map.get($spacers, 3);
   background-color: rgba($primary-color, 0.05);
-  border-radius: 10px;
+  border-radius: 8px;
   border-left: 4px solid $primary-color;
 
   p {
     margin: 0;
     color: $text-light;
     font-size: $font-size-small;
-    line-height: 1.6;
   }
 
   a {
@@ -950,6 +804,7 @@ img {
     }
   }
 }
+
 
 // Contact Section
 .contact {
